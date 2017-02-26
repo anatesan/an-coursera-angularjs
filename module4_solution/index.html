@@ -1,0 +1,49 @@
+<!--ex1/index.html - Angular starter -->
+
+<!DOCTYPE=html>
+<html ng-app="MenuApp">
+<head>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="lib/angular.min.js"></script>
+  <script src="lib/angular-ui-router.js"></script>
+
+  <!-- data artfacts -->
+  <script src="src/data/data.module.js"></script>
+  <script src="src/data/menudata.service.js"></script>
+
+  <!-- MenuApp artfacts -->
+  <script src="src/menuapp/menuapp.module.js"></script>
+  <script src="src/menuapp/categories.component.js"></script>
+  <script src="src/menuapp/items.component.js"></script>
+  <script src="src/menuapp/components.tester.controller.js"></script>
+  <script src="src/menuapp/items.view.controller.js"></script>
+  <script src="src/menuapp/categories.view.controller.js"></script>
+  <!-- routes -->
+  <script src="src/routes.js"></script>
+</head>
+<body >
+  <!-- First exercise.   Data Binding -->
+  <h3>1. Welcome to Chef Chu's Restaurant</h3>
+
+  <button ui-sref="home">Home</button>
+  <button ui-sref="categories">Categories</button>
+</br>
+</br>
+
+  <!-- ui-routing section -->
+  <ui-view></ui-view>
+
+  <!-- Test section to verify that components are working ok -->
+  <div ng-controller="ComponentsTesterController as tctrl">
+    <div ng-if="tctrl.ifTestComponentsInline()" class="container">
+      <!-- Test categories-list tag & component -->
+      <categories-list categories="tctrl.categories"
+            categories-title="Test Categories">Test categories</categories-list>
+      <!-- Test items-list tag & component -->
+      <items-list items="tctrl.items"
+            items-title="Test Items"></items-list>
+    </div>
+  </div>
+</body>
+</html>

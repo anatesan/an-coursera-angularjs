@@ -1,0 +1,19 @@
+
+<!-- categories view -->
+<h4>{{$ctrl.categoriesTitle}}</h4>
+<div class="container">
+  <div class="col-md-4">
+    <ul>
+      <!-- <li class="active" ng-repeat="cat in $ctrl.categories" ui-sref="categories.items({category: cat.short_name})"> -->
+      <!-- Better to pass in the ui-sref from outside the component, so component is shielded from UI states -->
+      <li class="active" ng-repeat="cat in $ctrl.categories" ui-sref="{{$ctrl.uiSrefString}}"">
+
+        <!-- add ui-sref -->
+        {{cat.name + " - ("+ cat.short_name + ")"}}
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-8">
+    <ui-view></ui-view>
+  </div>
+</div>
