@@ -52,10 +52,12 @@
           placeholder="E.g 415-425-3344" required
           ng-model="suCtrl.user.phoneNumber" pattern="(\d{3})-(\d{3})-(\d{4})"/>
       </div>
-      <span ng-if="(signupForm.phoneNumber.$invalid ||\
-            signupForm.phoneNumber.$error.required) &&
-            signupForm.phoneNumber.$touched"
-        class="ng-invalid"> Phone Number must be in XXX-XXX-XXXX format</span>
+      <span ng-if="signupForm.phoneNumber.$invalid  && signupForm.phoneNumber.$touched"
+        class="ng-invalid"> Phone Number must be in XXX-XXX-XXXX format
+      </span>
+      <span ng-if="signupForm.phoneNumber.$error.required && signupForm.phoneNumber.$touched"
+        class="ng-invalid"> Phone Number is required
+      </span>
     </div>
 
     <div class="form-group">
