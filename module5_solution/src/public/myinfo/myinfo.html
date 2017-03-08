@@ -1,0 +1,48 @@
+<h2> My info</h2>
+<form class="form-inline" name="myInfo"
+    ng-submit="infoCtrl.search(infoCtrl.searchKey)">
+  <div class="form-group">
+    <label class="sr-only" for="email">email</label>
+    <div class="input-group">
+      <div class="input-group-addon">Email</div>
+      <input type="text" class="form-control" id="email"
+        name="email" placeholder="Email" ng-model="infoCtrl.searchKey">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Search</button>
+</form>
+<span ng-if="!infoCtrl.noItemFound">
+  <br />
+  <br />
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">First Name:</div>
+      <div class="col-md-2">{{infoCtrl.user.firstName}}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">Last Name:</div>
+      <div class="col-md-2">{{infoCtrl.user.lastName}}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">Email:</div>
+      <div class="col-md-2">{{infoCtrl.user.email}}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">Phone Number:</div>
+      <div class="col-md-2">{{infoCtrl.user.phoneNumber}}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">Favorite Dish:</div>
+      <div class="col-md-2">{{infoCtrl.user.favItem}}</div>
+    </div>
+  </div>
+</span>
+<span ng-if="infoCtrl.noItemFound">
+  <div class="container">
+    <br />
+    <br />
+    <div class="row">
+      <div class="col-md-4">No record found for {{infoCtrl.searchKey}}</div>
+    </div>
+  </div>
+</span>
