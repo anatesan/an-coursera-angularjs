@@ -11,7 +11,7 @@
   </div>
   <button type="submit" class="btn btn-primary">Search</button>
 </form>
-<span ng-if="!infoCtrl.noItemFound">
+<span ng-if="!infoCtrl.noItemFound && infoCtrl.atleastOneSearchDone">
   <br />
   <br />
   <div class="container">
@@ -37,12 +37,21 @@
     </div>
   </div>
 </span>
-<span ng-if="infoCtrl.noItemFound">
+<span ng-if="infoCtrl.noItemFound && infoCtrl.atleastOneSearchDone">
   <div class="container">
     <br />
     <br />
     <div class="row">
       <div class="col-md-4">No record found for {{infoCtrl.searchKey}}</div>
+    </div>
+  </div>
+</span>
+<span ng-if="!infoCtrl.atleastOneSearchDone">
+  <div class="container">
+    <br />
+    <br />
+    <div class="row">
+      <div class="col-md-8">Please enter your email address to search</div>
     </div>
   </div>
 </span>

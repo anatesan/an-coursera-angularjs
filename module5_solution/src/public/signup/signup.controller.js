@@ -22,10 +22,11 @@
         suCtrl.isFavItemValid = true;
         suCtrl.submitSucceeded = true;
 
+        UserInfoService.addUser(suCtrl.user);
+
         // clear user object so form can get cleared
 
         suCtrl.submittedUser = Object.assign({}, suCtrl.user); //shallow copy
-        UserInfoService.addUser(suCtrl.user);
         for (var member in suCtrl.user) suCtrl.user[member]="";
 
         // clear touched state in form so we don't trigger validations
